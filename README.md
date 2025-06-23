@@ -1,16 +1,52 @@
 # boxdemo
 
-A new Flutter project.
+A new Flutter project for a Box demo . Th show the boxes in "C" Shape.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To clone this repo we need to copy this link:
+ https://github.com/rahulkushwaha482/boxdemo
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Logic of Box of C
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+First we device the one upper row , then vertical column and last Row.
+ of user enter number of boxes = 6
+
+ _numberOfBox =6
+ now number of      final h = _numberOfBox ~/ 3;
+                    final v = _numberOfBox - 2 * h;
+
+## Now generate the box of size according to h and v
+Code of Box where Animated container added 
+```
+ Widget _buildBox(int index, double size, {bool isRow = true}) {
+    if (index >= _numberOfBox) return SizedBox.shrink();
+
+    return GestureDetector(
+      onTap: () => _onBoxTap(index),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        width: size,
+        height: size,
+        margin: EdgeInsets.only(right: isRow ? 2 : 0),
+        decoration: BoxDecoration(
+          color: _boxStates[index] ? Colors.green : Colors.red,
+          borderRadius: BorderRadius.circular(2),
+        ),
+      ),
+    );
+  }
+  ```
+
+  On the tap of Box container , we store the box in a new list with their state to true .
+  After the check all box state are true using 
+  ```
+  if (_boxStates.every((b) => b)) {
+      _startReversal();
+    }
+    ```
+
+If the state is true , we can start reversing if color 
+
+# Atlast we should clear the addedm box list of taps .
