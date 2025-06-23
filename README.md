@@ -12,10 +12,12 @@ To clone this repo we need to copy this link:
 
 First we device the one upper row , then vertical column and last Row.
  of user enter number of boxes = 6
-
+```
  _numberOfBox =6
  now number of      final h = _numberOfBox ~/ 3;
                     final v = _numberOfBox - 2 * h;
+
+```
 
 ## Now generate the box of size according to h and v
 Code of Box where Animated container added 
